@@ -2,21 +2,58 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
 .App-header {
-  background-color: #282c34;
+  padding: 10px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-image: url("./backgroundimage1.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
+  background-color: black;
+  opacity: 1;
 }
 
-.App-link {
-  color: #09d3ac;
+.landingPage {
+  font-size: 5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  line-height: 1.3;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.link::after {
+  content: "";
+  background: white;
+  text-decoration: none;
+  mix-blend-mode: exclusion;
+  /* width: calc(100% + 20px); */
+  height: 0;
+  position: absolute;
+  bottom: -2px;
+  left: 0px;
+  right: 0px;
+  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.link:hover::after {
+  height: calc(100% + 2px);
 }

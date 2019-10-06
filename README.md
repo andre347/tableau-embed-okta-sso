@@ -1,68 +1,25 @@
+# Embedded Analytics Tableau with Okta SSO
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+**Landing Page:**
 
-In the project directory, you can run:
+![login](https://res.cloudinary.com/dmim37dbf/image/upload/v1570375377/landing.png)
 
-### `npm start`
+**LoggedIn State:**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![loggedIn](https://res.cloudinary.com/dmim37dbf/image/upload/v1570375378/loggedIn.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Installation instructions:**
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Create [Okta Developer Account](https://developer.okta.com/)
+2. Follow [these instructions](https://help.tableau.com/current/online/en-us/saml_config_okta.htm) to enable Okta for your Tableau Online or Tableau Server Environment
+3. Add Tableau Online to your 'Apps' in your Okta Console
+4. Add Application for Single Page Application (SPA) in Okta Applications Console
+5. Since our application runs on port 3000 by default, you should add that as the Login Redirect URI. Your settings should look like the following: ![okta image](https://res.cloudinary.com/dmim37dbf/image/upload/v1570375165/okta.png)
+6. [Enable CORS](https://developer.okta.com/docs/guides/enable-cors/overview/) for Localhost Port 3000 (including redirect) in your Okta Account
+7. Add your Organisation URL and Okta Client ID to the .env.local file like so (remove the curly brackets):
+   ![environmentfile](https://res.cloudinary.com/dmim37dbf/image/upload/v1570375664/variableEnv.png)
+8. Within the Components Folder you will find a Helper Folder. In Visualisations.js you see a place where you can link to your Tableau Online visualisations. I defaulted to three, but you can add as many as you want.
+9. When you configured everything you can run `npm start` to start the development server. You will find your application running on localhost port 3000
+10. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
